@@ -1,13 +1,13 @@
-package com.alvarez.examen.primeparcial;
+package com.alvarez.examenes.primerparcial;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PrimeParcialApplication {
+public class PrimerParcialApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PrimeParcialApplication.class, args);
+		SpringApplication.run(PrimerParcialApplication.class, args);
 	}
 
 }

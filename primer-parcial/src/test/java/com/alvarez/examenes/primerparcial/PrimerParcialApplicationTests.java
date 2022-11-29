@@ -1,10 +1,10 @@
-package com.alvarez.examen.primeparcial;
+package com.alvarez.examenes.primerparcial;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PrimeParcialApplicationTests {
+class PrimerParcialApplicationTests {
 
 	@Test
 	void contextLoads() {

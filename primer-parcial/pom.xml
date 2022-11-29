@@ -8,15 +8,19 @@
 		<version>2.7.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.alvarez.examen</groupId>
-	<artifactId>prime-parcial</artifactId>
+	<groupId>com.alvarez.examenes</groupId>
+	<artifactId>primer-parcial</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>prime-parcial</name>
+	<name>primer-parcial</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
