@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "client_address")
+@Table(name = "SEG_USUARIO_ESPACIO")
 public class UserSpace {
 
     @EmbeddedId
