@@ -18,4 +18,9 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         return this.userRepository.findAll();
     }
+
+    @Override
+    public List<User> findByStatus(String status) {
+        return this.userRepository.findByStatus(status);
+    }
 }

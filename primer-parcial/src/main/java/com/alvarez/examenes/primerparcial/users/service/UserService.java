@@ -6,4 +6,6 @@ import com.alvarez.examenes.primerparcial.users.model.User;
 
 public interface UserService {
     List<User> getAllUsers();
+
+    List<User> findByStatus(String status);
 }
