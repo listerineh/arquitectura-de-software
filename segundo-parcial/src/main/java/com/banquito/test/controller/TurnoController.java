@@ -39,21 +39,21 @@ public class TurnoController {
         return ResponseEntity.ok(turno);
     }
 
-    @PutMapping("/numero/{numeroTurno}/ejecutivo/{codigoEjecutivo}")
+    @PutMapping("/iniciar/{numeroTurno}/ejecutivo/{codigoEjecutivo}")
     public ResponseEntity<Turno> iniciarTurno(@PathVariable Long numeroTurno, @PathVariable String codigoEjecutivo) {
         Turno turnoIniciado = this.ejecutivoService.iniciarTurno(numeroTurno, codigoEjecutivo);
 
         return ResponseEntity.ok(turnoIniciado);
     }
 
-    @PutMapping("/numero/{numeroTurno}")
+    @PutMapping("/finalizar/{numeroTurno}")
     public ResponseEntity<Turno> finalizarTurno(@PathVariable Long numeroTurno) {
         Turno turnoFinalizado = this.ejecutivoService.finalizarTurno(numeroTurno);
 
         return ResponseEntity.ok(turnoFinalizado);
     }
 
-    @PutMapping("numero/{numeroTurno}/cedula/{cedula}/calificacion/{calificacion}")
+    @PutMapping("calificar/{numeroTurno}/cedula/{cedula}/calificacion/{calificacion}")
     public ResponseEntity<Turno> calificarTurno(
             @PathVariable Long numeroTurno,
             @PathVariable String cedula,
