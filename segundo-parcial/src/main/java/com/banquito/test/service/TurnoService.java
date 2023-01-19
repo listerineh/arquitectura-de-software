@@ -16,6 +16,11 @@ public class TurnoService {
         this.repository = repository;
     }
 
+    public Turno obtenerTurnoPorNumero(Long numero) {
+        return this.repository.findByNumero(numero);
+    }
+
+    @Transactional
     public Turno crearTurno(String cedula, String nombres, String apellidos) {
         Long siguienteTurno = repository.findAll().spliterator().getExactSizeIfKnown() + 1;
 
@@ -38,7 +43,7 @@ public class TurnoService {
         if (cedula != turno.getCedulaCliente())
             return null;
 
-        return Turno.builder()
+        Turno turnoCalificado = Turno.builder()
                 .id(turno.getId())
                 .numero(turno.getNumero())
                 .cedulaCliente(turno.getCedulaCliente())
@@ -50,5 +55,9 @@ public class TurnoService {
                 .fechaHoraFin(turno.getFechaHoraFin())
                 .calificacion(calificacion)
                 .build();
+
+        this.repository.save(turnoCalificado);
+
+        return turnoCalificado;
     }
 }

@@ -1,6 +1,7 @@
 package com.banquito.test.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,6 +32,13 @@ public class TurnoController {
         return ResponseEntity.ok(nuevoTurno);
     }
 
+    @GetMapping("/{numero}")
+    public ResponseEntity<Turno> obtenerTurnoPorNumero(@RequestBody Long numero) {
+        Turno turno = this.service.obtenerTurnoPorNumero(numero);
+
+        return ResponseEntity.ok(turno);
+    }
+
     @PutMapping("/numero/{numeroTurno}/ejecutivo/{codigoEjecutivo}")
     public ResponseEntity<Turno> iniciarTurno(@PathVariable Long numeroTurno, @PathVariable String codigoEjecutivo) {
         Turno turnoIniciado = this.ejecutivoService.iniciarTurno(numeroTurno, codigoEjecutivo);
@@ -43,5 +51,15 @@ public class TurnoController {
         Turno turnoFinalizado = this.ejecutivoService.finalizarTurno(numeroTurno);
 
         return ResponseEntity.ok(turnoFinalizado);
+    }
+
+    @PutMapping("numero/{numeroTurno}/cedula/{cedula}/calificacion/{calificacion}")
+    public ResponseEntity<Turno> calificarTurno(
+            @PathVariable Long numeroTurno,
+            @PathVariable String cedula,
+            @PathVariable Integer calificacion) {
+        Turno turnoCalificado = this.service.calificarTurno(cedula, numeroTurno, calificacion);
+
+        return ResponseEntity.ok(turnoCalificado);
     }
 }
