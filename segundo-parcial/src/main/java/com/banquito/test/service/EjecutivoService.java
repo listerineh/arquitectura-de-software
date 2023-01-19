@@ -25,7 +25,8 @@ public class EjecutivoService {
         Turno turno = turnoRepository.findByNumero(numeroTurno);
         Ejecutivo ejecutivo = repository.findByCodigo(codigoEjecutivo);
 
-        return Turno.builder()
+        Turno turnoIniciado = Turno.builder()
+                .id(turno.getId())
                 .numero(turno.getNumero())
                 .cedulaCliente(turno.getCedulaCliente())
                 .nombreCliente(turno.getNombreCliente())
@@ -34,13 +35,18 @@ public class EjecutivoService {
                 .nombreEjecutivo(ejecutivo.getNombreCompleto())
                 .fechaHoraInicio(new Date())
                 .build();
+
+        this.turnoRepository.save(turnoIniciado);
+
+        return turnoIniciado;
     }
 
     @Transactional
     public Turno finalizarTurno(Long numeroTurno) {
         Turno turno = turnoRepository.findByNumero(numeroTurno);
 
-        return Turno.builder()
+        Turno turnoFinalizado = Turno.builder()
+                .id(turno.getId())
                 .numero(turno.getNumero())
                 .cedulaCliente(turno.getCedulaCliente())
                 .nombreCliente(turno.getNombreCliente())
@@ -50,5 +56,9 @@ public class EjecutivoService {
                 .fechaHoraInicio(turno.getFechaHoraInicio())
                 .fechaHoraFin(new Date())
                 .build();
+
+        this.turnoRepository.save(turnoFinalizado);
+
+        return turnoFinalizado;
     }
 }

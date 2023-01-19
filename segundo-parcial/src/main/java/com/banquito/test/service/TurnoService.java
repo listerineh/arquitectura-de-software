@@ -39,6 +39,7 @@ public class TurnoService {
             return null;
 
         return Turno.builder()
+                .id(turno.getId())
                 .numero(turno.getNumero())
                 .cedulaCliente(turno.getCedulaCliente())
                 .nombreCliente(turno.getNombreCliente())
