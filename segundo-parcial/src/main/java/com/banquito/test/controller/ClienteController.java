@@ -19,7 +19,7 @@ public class ClienteController {
     }
 
     @GetMapping("/{cedula}")
-    public ResponseEntity<Cliente> readUsersByStatus(@PathVariable("cedula") String cedula) {
+    public ResponseEntity<Cliente> obtenerClientePorCedula(@PathVariable("cedula") String cedula) {
         return ResponseEntity.ok(this.service.getByCedula(cedula));
     }
 }

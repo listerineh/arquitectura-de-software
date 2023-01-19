@@ -19,12 +19,16 @@ public class TurnoService {
     public Turno crearTurno(String cedula, String nombres, String apellidos) {
         Long siguienteTurno = repository.findAll().spliterator().getExactSizeIfKnown() + 1;
 
-        return Turno.builder()
+        Turno turno = Turno.builder()
                 .numero(siguienteTurno)
                 .cedulaCliente(cedula)
                 .nombreCliente(nombres + " " + apellidos)
                 .fechaHoraGeneracion(new Date())
                 .build();
+
+        this.repository.save(turno);
+
+        return turno;
     }
 
     @Transactional
