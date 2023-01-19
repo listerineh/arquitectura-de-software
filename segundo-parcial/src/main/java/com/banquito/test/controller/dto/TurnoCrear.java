@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class TurnoRQ {
+public class TurnoCrear {
     private String cedula;
     private String nombres;
     private String apellidos;
