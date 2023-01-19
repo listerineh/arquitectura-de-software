@@ -33,7 +33,7 @@ public class TurnoController {
     }
 
     @GetMapping("/{numero}")
-    public ResponseEntity<Turno> obtenerTurnoPorNumero(@RequestBody Long numero) {
+    public ResponseEntity<Turno> obtenerTurnoPorNumero(@PathVariable Long numero) {
         Turno turno = this.service.obtenerTurnoPorNumero(numero);
 
         return ResponseEntity.ok(turno);

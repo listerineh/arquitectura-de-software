@@ -40,8 +40,8 @@ public class TurnoService {
     public Turno calificarTurno(String cedula, Long numeroTurno, Integer calificacion) {
         Turno turno = repository.findByNumero(numeroTurno);
 
-        if (cedula != turno.getCedulaCliente())
-            return null;
+        // if (cedula != turno.getCedulaCliente())
+        // return null;
 
         Turno turnoCalificado = Turno.builder()
                 .id(turno.getId())
